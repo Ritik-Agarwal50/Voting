@@ -84,4 +84,20 @@ contract VotingSystem {
         require(!votingOpen, "Voting is still open");
         return candidates;
     }
+
+    //getters
+
+    function isVotingOpen() public view returns (bool) {
+        return votingOpen;
+    }
+
+    function getVoter(address _voter) public view returns (Voter memory) {
+        return voters[_voter];
+    }
+
+    function getCandidate(
+        uint256 _candidateId
+    ) public view returns (Candidate memory) {
+        return candidates[_candidateId];
+    }
 }
